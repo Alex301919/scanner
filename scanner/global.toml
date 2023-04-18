@@ -1,0 +1,22 @@
+[global.username-wordlist]
+default = '/usr/share/seclists/Usernames/top-usernames-shortlist.txt'
+help = 'Список имен пользователей, используемый для брутфорса. Обычно: %(default)s'
+
+[global.password-wordlist]
+default = '/usr/share/seclists/Passwords/darkweb2017-top100.txt'
+help = 'Список паролей, используемых для брутфорса. Обычно: %(default)s'
+
+[global.domain]
+help = 'Используемый домен (если известен). Используется для DNS и/или Active Directory. Обычно: %(default)s'
+
+# Configure global pattern matching here.
+[[pattern]]
+description = 'Скрипт Nmap обнаружил потенциальную уязвимость. ({match})'
+pattern = 'State: (?:(?:LIKELY\_?)?VULNERABLE)'
+
+[[pattern]]
+pattern = '(?i)unauthorized'
+
+[[pattern]]
+description = 'CVE Identified: {match}'
+pattern = '(CVE-\d{4}-\d{4,7})'
